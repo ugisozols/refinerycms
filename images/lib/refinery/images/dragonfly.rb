@@ -12,7 +12,7 @@ module Refinery
           app_images = ::Dragonfly.app(:refinery_images)
 
           app_images.configure do
-            plugin :imagemagick
+            plugin :imagemagick, identify_command: 'identify -limit memory 0 -limit map 0'
             datastore :file, {
               :root_path => Refinery::Images.datastore_root_path
             }
